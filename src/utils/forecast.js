@@ -21,13 +21,18 @@ const getWeather = (lattitude,longitude,callback) => {
                 // console.log(response.body.daily.data[0].summary+' its currently '+
                 // response.body.currently.temperature+ ' degrees out. There is a '+
                 // response.body.currently.precipProbability+'% chance of rain')
+
+                console.log(body.daily.data[0]);
                 callback (undefined,{
                     'summary':body.daily.data[0].summary ,
                     'temperature':body.currently.temperature,
                     'precipProbability':body.currently.precipProbability,
                     'forecast' : body.daily.data[0].summary+'it\'s currently '+
                                                      body.currently.temperature+' degrees with '+ 
-                                                     body.daily.data[0].precipProbability+'% chance of rain !!'
+                                                     body.daily.data[0].precipProbability+'% chance of rain !! Today\'s High is '+
+                                                     body.daily.data[0].temperatureHigh + ' degrees  and Low is at' +
+                                                     body.daily.data[0].temperatureLow+' degrees'
+
                 })
             }
             
